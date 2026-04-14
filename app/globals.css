@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fcfcfc;
   --foreground: #171717;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-poppins), var(--font-geist-sans), Arial, Helvetica, sans-serif;
   --font-mono: var(--font-geist-mono);
+  
+  --color-amela-purple: #2A166F;
+  --color-amela-purple-dark: #1f1057;
+  --color-amela-yellow: #FAFF7F;
+  --color-amela-light-purple: #C8A4FF;
+  --color-amela-card-purple: #3A238A;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #fcfcfc; /* Force light theme to match Amela website for now */
+    --foreground: #171717;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* ─── Keynote Presentation ─────────────────────────────── */
+
+@keyframes slide-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.slide-enter {
+  animation: slide-enter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.keynote-child-1 { animation: slide-enter 0.7s 0.05s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.keynote-child-2 { animation: slide-enter 0.7s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.keynote-child-3 { animation: slide-enter 0.7s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.keynote-child-4 { animation: slide-enter 0.7s 0.35s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.keynote-child-5 { animation: slide-enter 0.7s 0.42s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+.keynote-bar {
+  animation: slide-enter 0.9s 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
